@@ -1,4 +1,4 @@
-import { withState } from './store';
+import { withState } from './stateProvider';
 import { State } from './state';
 import React from 'react';
 

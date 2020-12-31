@@ -1,6 +1,6 @@
 import { lens } from "./lens";
 import { State } from "./state";
-import { SetState } from "./store";
+import { SetState } from "./stateProvider";
 
 export const appIOFactory = (setState: SetState<State>) => ({
     setCounter: (c: number) => setState(prev => lens.counter.set(prev, c)),

@@ -1,5 +1,5 @@
 import React from "react";
-import { withState } from "./store";
+import { withState } from "./stateProvider";
 
 type Props = {
     setDeep: () => void,

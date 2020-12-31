@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { StateProvider } from './store';
+import { StateProvider } from './stateProvider';
 
 ReactDOM.render(
   <StateProvider>
