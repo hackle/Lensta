@@ -17,17 +17,16 @@ export function StateProvider({ children }: { children: ReactNode }) {
 
 export function withState<POwn = {}, PSt = {}, P extends (POwn & PSt) = POwn & PSt>(
     Comp: React.FunctionComponent<P>, 
-    map: (state: State, appIO: AppIO) => PSt
+    mapToStateProps: (state: State, appIO: AppIO, props?: POwn) => PSt
 ) {
     let appIO: AppIO | null = null;
     
     return (props: POwn) => {
         const { state, setState } = useContext<StateContext>(store);
         appIO = appIO ?? appIOFactory(setState);
-        const stateProps = map(state, appIO);
+        const stateProps = mapToStateProps(state, appIO, props);
         const allProps: P = { ...props, ...stateProps } as P;
-        const Memoed = React.memo(Comp) as any;
 
-        return <Memoed { ...allProps } />;
+        return <Comp { ...allProps } />;
     };
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { withState } from "./store";
 
 type Props = {
@@ -6,4 +7,4 @@ type Props = {
 
 const DeepSetter = (props: Props) => <button onClick={() => props.setDeep() }>Set deeply</button>;
 
-export default withState(DeepSetter, (state, appIO) => ({ setDeep: appIO.setDeep }));
+export default withState(React.memo(DeepSetter), (state, appIO) => ({ setDeep: appIO.setDeep }));
